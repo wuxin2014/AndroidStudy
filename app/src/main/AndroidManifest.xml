@@ -11,13 +11,15 @@
 
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
+        <!--launchModeDemo开始-->
         <activity
             android:name=".launchMode.IndexActivity" />
         <activity
@@ -33,7 +35,14 @@
             android:launchMode="singleInstance"/>
         <activity
             android:name=".launchMode.OtherActivity" />
+        <!--launchModeDemo结束-->
 
+        <!--serviceDemo开始-->
+        <activity
+            android:name=".service.ServiceActivity" />
+
+        <service android:name=".service.MyService" />
+        <!--serviceDemo结束-->
     </application>
 
 </manifest>
