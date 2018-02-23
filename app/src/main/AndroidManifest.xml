@@ -31,6 +31,8 @@
         <activity
             android:name=".launchMode.SingleInstanceActivity"
             android:launchMode="singleInstance"/>
+        <activity
+            android:name=".launchMode.OtherActivity" />
 
     </application>
 

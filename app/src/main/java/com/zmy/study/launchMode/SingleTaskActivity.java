@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import com.zmy.study.R;
 import com.zmy.study.util.LogUtils;
 
+/**
+ * singleTask适合作为程序入口点
+ */
 public class SingleTaskActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

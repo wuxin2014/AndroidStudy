@@ -9,9 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import com.zmy.study.R;
 import com.zmy.study.util.LogUtils;
 
-/**
- * Created by lings on 2018/2/23.
- */
 
 public class StandardActivity extends AppCompatActivity {
     @Override

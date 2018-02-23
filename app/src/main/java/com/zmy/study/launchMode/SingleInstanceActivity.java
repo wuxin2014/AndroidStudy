@@ -10,7 +10,12 @@ import com.zmy.study.R;
 import com.zmy.study.util.LogUtils;
 
 /**
- * Created by lings on 2018/2/23.
+ * singleInstance适合需要与程序分离开的页面
+ *
+ * 这种模式下的Activity会单独占用一个Task栈，具有全局唯一性，即整个系统中就这么一个实例，由于栈内复用的特性，
+ * 后续的请求均不会创建新的Activity实例，除非这个特殊的任务栈被销毁了
+ *
+ * 例如电话拨号盘页面，通过自己的应用或者其他应用打开拨打电话页面 ，只要系统的栈中存在该实例，那么就会直接调用
  */
 
 public class SingleInstanceActivity extends AppCompatActivity {

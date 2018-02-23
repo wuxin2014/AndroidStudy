@@ -11,6 +11,14 @@ import android.widget.Button;
 import com.zmy.study.R;
 import com.zmy.study.util.LogUtils;
 
+/**
+ * 当我们多次启动同一个Activity，系统也会创建多个实例放入任务栈中，这样岂不是很耗费内存资源？为了解决这一问题，Android为Activity提供了启动模式
+ * 为什么要研究启动模式
+ * 1.有时候我们的App需要生成给其他App调用的Activity，例如浏览器应用，照相机应用
+ * 2.解决生成重复页面等等Bug
+ * 3.任务栈过深的时候，避免一直按返回键也退不回想要的页面
+ */
+
 public class IndexActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button standardBtn, singleTopBtn, singleTaskBtn, singleInstanceBtn;
