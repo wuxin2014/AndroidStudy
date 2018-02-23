@@ -17,6 +17,21 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".launchMode.IndexActivity" />
+        <activity
+            android:name=".launchMode.StandardActivity" />
+        <activity
+            android:name=".launchMode.SingleTopActivity"
+            android:launchMode="singleTop"/>
+        <activity
+            android:name=".launchMode.SingleTaskActivity"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".launchMode.SingleInstanceActivity"
+            android:launchMode="singleInstance"/>
+
     </application>
 
 </manifest>
