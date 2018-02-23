@@ -39,9 +39,14 @@
 
         <!--serviceDemo开始-->
         <activity
-            android:name=".service.ServiceActivity" />
+            android:name=".service.ServiceActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".service.IntentServiceActivity"
+            android:screenOrientation="portrait"/>
 
         <service android:name=".service.MyService" />
+        <service android:name=".service.MyIntentService" />
         <!--serviceDemo结束-->
     </application>
 

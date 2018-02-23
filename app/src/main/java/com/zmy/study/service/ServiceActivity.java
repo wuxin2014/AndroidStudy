@@ -30,6 +30,7 @@ import com.zmy.study.R;
  */
 public class ServiceActivity extends AppCompatActivity implements View.OnClickListener{
     private Button startBtn, stopBtn, bindBtn, unbindBtn;
+    private Button intentServiceBtn;
 
     // 内部类
     private MyService.MyBinder myBinder;
@@ -56,10 +57,14 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
         bindBtn = findViewById(R.id.btn_bind_service);
         unbindBtn = findViewById(R.id.btn_unbind_service);
 
+        intentServiceBtn = findViewById(R.id.btn_start_intent_service);
+
         startBtn.setOnClickListener(this);
         stopBtn.setOnClickListener(this);
         bindBtn.setOnClickListener(this);
         unbindBtn.setOnClickListener(this);
+
+        intentServiceBtn.setOnClickListener(this);
     }
 
     @Override
@@ -82,6 +87,11 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.btn_unbind_service:
                 // 一个Service必须要在既没有和任何Activity关联又处理停止状态的时候才会被销毁。
                 unbindService(connection);
+                break;
+
+            case R.id.btn_start_intent_service:
+                intent = new Intent(this, IntentServiceActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;
