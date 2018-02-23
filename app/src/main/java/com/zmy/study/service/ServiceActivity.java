@@ -12,7 +12,7 @@ import android.widget.Button;
 
 import com.zmy.study.R;
 
-// 参考文章http://blog.csdn.net/xuefu_78/article/details/64127844
+// 参考文章http://blog.csdn.net/guolin_blog/article/details/11952435
 
 /**
  *  执行startService时，Service会经历onCreate->onStartCommand。当执行stopService时，直接调用onDestroy方法。

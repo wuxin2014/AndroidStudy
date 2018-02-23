@@ -1,26 +1,47 @@
 package com.zmy.study.service;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+
+import com.zmy.study.MainActivity;
+import com.zmy.study.R;
 import com.zmy.study.util.LogUtils;
 
-
-public class MyService extends Service {
-
+public class ForegroundService extends Service {
     private MyBinder mBinder = new MyBinder();
 
     @Override
     public void onCreate() {
-        LogUtils.d("MyService  onCreate");
+        LogUtils.d("ForegroundService  onCreate");
         super.onCreate();
+
+        // 普通意图
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+        // 加强意图
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+
+        // 通知的创建
+        Notification notification = new Notification.Builder(this)
+                .setContentTitle("有通知到来")
+                .setContentText("这是通知的内容")
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setWhen(System.currentTimeMillis())
+                .setContentIntent(pendingIntent)
+                .build(); // level 16才支持的
+
+        notification.flags = Notification.FLAG_AUTO_CANCEL;
+        // 让ForegroundService变成一个前台Service（ForegroundService）
+        startForeground(1, notification);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        LogUtils.d("MyService  onStartCommand");
+        LogUtils.d("ForegroundService  onStartCommand");
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -32,7 +53,7 @@ public class MyService extends Service {
 
     @Override
     public void onDestroy() {
-        LogUtils.d("MyService  onDestroy");
+        LogUtils.d("ForegroundService  onDestroy");
         super.onDestroy();
     }
 
@@ -40,13 +61,13 @@ public class MyService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        LogUtils.d("MyService  onBind");
-        return mBinder;
+        LogUtils.d("ForegroundService  onBind");
+        return null; // mBinder;
     }
 
     @Override
     public boolean onUnbind(Intent intent) {
-        LogUtils.d("MyService  onUnbind");
+        LogUtils.d("ForegroundService  onUnbind");
         return super.onUnbind(intent);
     }
 

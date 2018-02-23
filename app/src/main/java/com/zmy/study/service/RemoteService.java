@@ -5,22 +5,42 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+
 import com.zmy.study.util.LogUtils;
 
+// http://blog.csdn.net/guolin_blog/article/details/9797169
 
-public class MyService extends Service {
-
+public class RemoteService extends Service {
     private MyBinder mBinder = new MyBinder();
 
     @Override
     public void onCreate() {
-        LogUtils.d("MyService  onCreate");
+        LogUtils.d("RemoteService  onCreate");
         super.onCreate();
+
+        /*
+        * 在onCreate中睡眠60秒，会报ANR的错
+        * 解决方案： 只需要在注册Service的时候将它的android:process属性指定成:remote就可以了
+        * <service
+        *   android:name="com.zmy.study.service.RemoteService"
+        *   android:process=":remote" >
+        * </service>
+        *
+        * 如何才能让Activity与一个远程Service建立关联呢？这就要使用AIDL来进行跨进程通信了（IPC）
+        * AIDL（Android Interface Definition Language）是Android接口定义语言的意思，
+        * 它可以用于让某个Service与多个应用程序组件之间进行跨进程通信，从而可以实现多个应用程序共享同一个Service的功能。
+        */
+
+        /*try {
+            Thread.sleep(60000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        LogUtils.d("MyService  onStartCommand");
+        LogUtils.d("RemoteService  onStartCommand");
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -32,7 +52,7 @@ public class MyService extends Service {
 
     @Override
     public void onDestroy() {
-        LogUtils.d("MyService  onDestroy");
+        LogUtils.d("RemoteService  onDestroy");
         super.onDestroy();
     }
 
@@ -40,13 +60,13 @@ public class MyService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        LogUtils.d("MyService  onBind");
-        return mBinder;
+        LogUtils.d("RemoteService  onBind");
+        return null; // mBinder;
     }
 
     @Override
     public boolean onUnbind(Intent intent) {
-        LogUtils.d("MyService  onUnbind");
+        LogUtils.d("RemoteService  onUnbind");
         return super.onUnbind(intent);
     }
 
@@ -62,6 +82,5 @@ public class MyService extends Service {
                 }
             }).start();
         }
-
     }
 }
