@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Android中WebView跟JS交互</title>
+    <script type="text/javascript">
+        function callJS(){
+            alert("Android调用了JS的callJS方法");
+        }
+
+        function clickPrompt(){
+            // 调用prompt（）
+            var result=prompt("js://demo?arg1=111&arg2=222");
+            alert("demo " + result);
+        }
+
+        function callAndroid(){
+             // 由于对象映射，所以调用test对象等于调用Android映射的对象
+            test.hello("js调用了android中的hello方法");
+        }
+
+        function callAndroid2(){
+            /*约定的url协议为：js://webview?arg1=111&arg2=222*/
+            document.location = "js://webview?arg1=111&arg2=222";
+        }
+    </script>
+</head>
+<body>
+<div>
+    <button onclick="callAndroid()">点击调用Android代码方法一</button>
+    <button onclick="callAndroid2()">点击调用Android代码方法二</button>
+    <button onclick="clickPrompt()">点击调用Android代码方法三</button>
+</div>
+</body>
+</html>

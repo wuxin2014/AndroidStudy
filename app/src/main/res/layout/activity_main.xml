@@ -21,6 +21,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:text="serviceDemo"/>
+
+            <Button
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="webViewDemo"/>
+            <Button
+                android:id="@+id/webView2"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="webViewDemo2"/>
         </LinearLayout>
     </ScrollView>
 
