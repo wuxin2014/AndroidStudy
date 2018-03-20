@@ -9,11 +9,12 @@ import android.widget.Button;
 
 import com.zmy.study.launchMode.IndexActivity;
 import com.zmy.study.service.ServiceActivity;
+import com.zmy.study.viewScroll.ViewScollActivity;
 import com.zmy.study.webJs.WebViewActivity;
 import com.zmy.study.webJs.WebViewActivity2;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button launchModeBtn, serviceBtn, webViewBtn, webViewBtn2;
+    private Button launchModeBtn, serviceBtn, webViewBtn, webViewBtn2, viewScrollBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,10 +24,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         serviceBtn = findViewById(R.id.service_demo);
         webViewBtn = findViewById(R.id.webView);
         webViewBtn2 = findViewById(R.id.webView2);
+        viewScrollBtn = findViewById(R.id.viewScroll);
         launchModeBtn.setOnClickListener(this);
         serviceBtn.setOnClickListener(this);
         webViewBtn.setOnClickListener(this);
         webViewBtn2.setOnClickListener(this);
+        viewScrollBtn.setOnClickListener(this);
     }
 
     @Override
@@ -50,6 +53,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.webView2:
                 intent = new Intent(this, WebViewActivity2.class);
+                startActivity(intent);
+                break;
+            case R.id.viewScroll:
+                intent = new Intent(this, ViewScollActivity.class);
                 startActivity(intent);
                 break;
         }
