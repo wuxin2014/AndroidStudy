@@ -14,7 +14,7 @@ import com.zmy.study.webJs.WebViewActivity;
 import com.zmy.study.webJs.WebViewActivity2;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button launchModeBtn, serviceBtn, webViewBtn, webViewBtn2, viewScrollBtn;
+    private Button launchModeBtn, serviceBtn, webViewBtn, webViewBtn2, viewScrollBtn, dragViewBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,11 +25,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         webViewBtn = findViewById(R.id.webView);
         webViewBtn2 = findViewById(R.id.webView2);
         viewScrollBtn = findViewById(R.id.viewScroll);
+        dragViewBtn = findViewById(R.id.dragView);
         launchModeBtn.setOnClickListener(this);
         serviceBtn.setOnClickListener(this);
         webViewBtn.setOnClickListener(this);
         webViewBtn2.setOnClickListener(this);
         viewScrollBtn.setOnClickListener(this);
+        dragViewBtn.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -57,6 +64,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.viewScroll:
                 intent = new Intent(this, ViewScollActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.dragView:
+                intent = new Intent(this, DragActivity.class);
                 startActivity(intent);
                 break;
         }

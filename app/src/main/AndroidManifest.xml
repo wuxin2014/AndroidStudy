@@ -60,6 +60,10 @@
         <activity
             android:name=".viewScroll.ViewScollActivity"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".DragActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
