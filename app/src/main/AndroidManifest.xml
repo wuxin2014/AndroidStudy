@@ -58,7 +58,7 @@
             android:name=".webJs.WebViewActivity2"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".viewScroll.ViewScollActivity"
+            android:name=".OriginDragViewActivity"
             android:screenOrientation="portrait"/>
 
         <activity

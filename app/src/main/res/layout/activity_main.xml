@@ -3,48 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <Button
-                android:id="@+id/launch_demo"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:text="launchDemo"/>
-
-            <Button
-                android:id="@+id/service_demo"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:text="serviceDemo"/>
-
-            <Button
-                android:id="@+id/webView"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:text="webViewDemo"/>
-            <Button
-                android:id="@+id/webView2"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:text="webViewDemo2"/>
-
-            <Button
-                android:id="@+id/viewScroll"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:text="viewScrollDemo"/>
-
-            <Button
-                android:id="@+id/dragView"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:text="dragViewDemo"/>
-        </LinearLayout>
-    </ScrollView>
-
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

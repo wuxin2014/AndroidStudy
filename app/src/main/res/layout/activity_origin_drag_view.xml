@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.zmy.study.viewScroll.ViewScrollDemo
-        android:id="@+id/scrollView"
+
+    <com.zmy.study.view.OriginDragView
+        android:id="@+id/originDragView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="#000000"/>
+        android:background="#efefef"/>
 </LinearLayout>
